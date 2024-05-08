@@ -11,6 +11,7 @@ if (hascontrol)
 	//De VARS worden == 1 als A, D, of Space ingedurkt wordt, zo niet dan zijn ze == 0
 	keyLeft = keyboard_check(ord("A"));
 	keyRight = keyboard_check(ord("D"));
+	keySprint = keyboard_check(vk_shift);
 	keyJump = keyboard_check_pressed(vk_space); 
 }
 else
@@ -20,83 +21,77 @@ else
 	keyLeft = 0;
 	keyJump = 0;
 }
-
 #endregion
 
-#region //Bereken de Movement
 
-if (keyboard_check(vk_shift)) {
-	sprint = 2
-}
-else {
-	sprint = 1
-}
+#region //Bereken de Movement
 
 // Check of het 0 of -1 is.
 // keyRight = 1 dan is het 1-0 = 1.
 // keyLeft = 1 dan is het 0-1 = -1.
 var move = keyRight - keyLeft;
-// Zat de snelheid van Movement naar walksp
-xMove = (move * walksp * sprint);
 
+// Zet de snelheid van Movement naar walksp
+xMove = (move * walksp);
+
+
+// Zet de zwaarte van de verticale Movement
 yMove = (yMove + grv);
 
-//Jumping
-canjump-=1;
-
-// Checked of Player op de ground staat
-if (place_meeting(x,y+1,objGround))
-{
-	// Hoe hoger dit getal hoevaker de speler kan "Dubbel Jumpen"
-	canjump = 1;
-}
+// Staat de speler op de grond?
+onGround = place_meeting(x, y+1, [objGround, objGroudSlope])
 
 // If Player is op de grond en drukt op space, verplaats Speler 7 pixels omhoog
 if (canjump > 0) && (keyJump)
 {
-	if (!yMove > 0) {
-		xMove = (move * walksp)
-	}
-	yMove = -7;
-	
+    yMove = jumpSpeed; // Jumpspeed = -7
+    canjump = 0;
 }
-
-
 #endregion
 
-#region //Collide and move
-//Horizontal Collision
-if (place_meeting(x+xMove,y,objGround))
-{
-	while (!place_meeting(x+sign(xMove),y,objGround))
-	{
-		x = x + sign(xMove);
-	}
-	xMove = 0;
-}
-x = x + xMove;
+#region //Collide and Movement op hellingen
 
-//Vertical Collision
-if (place_meeting(x,y+yMove,objGround))
-{
-	while (!place_meeting(x,y+sign(yMove),objGround))
-	{
-		y = y + sign(yMove);
-	}
-	yMove = 0;
+//Horizontale Collision
+var xMoveColide = move_and_collide(xMove, 0, [objGround, objGroudSlope], abs(xMove))
+
+// Laat de speler de helling omlaag lopen
+if (onGround) && (place_meeting(x,y + abs(xMove) + 1, [objGround, objGroudSlope])) && (yMove >= 0) {
+	yMove += abs(xMove) + 2;
 }
-y = y + yMove;
+
+// Verticale Collision
+var yMoveColide = move_and_collide(0, yMove, [objGround, objGroudSlope], abs(yMove) + 1, xMove, yMove, xMove, yMove)
+if (array_length(yMoveColide) > 0) {
+	if (yMove > 0 ) {
+		canjump = 10
+	}
+	yMove = 0
+}
 #endregion
 
-
-#region Animation
+#region Animatie van de Player Movement
 var aimside = sign(mouse_x - x)
 if (aimside != 0) image_xscale = aimside;
 
+if (keySprint) {
+	for (var i = 0; i < 10; i++) {
+		walksp += 0.01;
+		if (walksp > 10) {
+			walksp = 10
+			break;
+		}
+	}
+}
+else {
+	walksp = 4;
+}
+
 // Dit stukje code later veranderen in een "beter" geschreven stuk
-if (!place_meeting(x, y+1, objGround)) {
+if (!place_meeting(x, y+1, [objGround, objGroudSlope])) {
 	// Bepaalt welke Sprite gekozen word
 	sprite_index = sprPlayerJumping
+	if (keySprint && walksp > 5) {
+	} else walksp = 4
 	// Snelheid tussen de getekende frames
 	image_speed = 0;
 	if (sign(yMove) > 0) {
@@ -110,12 +105,14 @@ if (!place_meeting(x, y+1, objGround)) {
 	image_speed = 1;
 	if (xMove == 0) {
 		sprite_index = sprPlayerStanding
-	} else {
-		sprite_index = sprPlayerRunning
-		if (aimside != sign(xMove)) { sprite_index = sprPlayerRunningBack}
-	}
+	} else if (walksp > 7) {
+		sprite_index = sprPlayerSprinting
+	} else sprite_index = sprPlayerRunning;
+		if (aimside != sign(xMove)) {
+			sprite_index = sprPlayerRunningBack
+			walksp = 4;
+		}
 }
-
 #endregion
 
 
