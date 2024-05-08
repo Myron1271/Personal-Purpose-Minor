@@ -1,0 +1,6 @@
+Zet hier alle Solid objecten in waar de speler niet door heen kan lopen.
+
+Dus bijvoorbeeld:
+Muren,
+Grond,
+Plafonds,

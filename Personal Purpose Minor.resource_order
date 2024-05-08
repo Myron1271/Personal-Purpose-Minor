@@ -5,6 +5,7 @@
     {"name":"Fonts","order":7,"path":"folders/Fonts.yy",},
     {"name":"Notes","order":13,"path":"folders/Notes.yy",},
     {"name":"Objects","order":9,"path":"folders/Objects.yy",},
+    {"name":"Solids","order":4,"path":"folders/Objects/Solids.yy",},
     {"name":"Particle Systems","order":15,"path":"folders/Particle Systems.yy",},
     {"name":"Paths","order":4,"path":"folders/Paths.yy",},
     {"name":"Rooms","order":10,"path":"folders/Rooms.yy",},
@@ -22,6 +23,9 @@
     {"name":"objPlayerGun","order":2,"path":"objects/objPlayerGun/objPlayerGun.yy",},
     {"name":"sprBullet","order":3,"path":"sprites/sprBullet/sprBullet.yy",},
     {"name":"sprGround","order":1,"path":"sprites/sprGround/sprGround.yy",},
-    {"name":"sprPlayer","order":2,"path":"sprites/sprPlayer/sprPlayer.yy",},
+    {"name":"sprPlayerJumping","order":6,"path":"sprites/sprPlayerJumping/sprPlayerJumping.yy",},
+    {"name":"sprPlayerRunning","order":2,"path":"sprites/sprPlayerRunning/sprPlayerRunning.yy",},
+    {"name":"sprPlayerRunningBack","order":7,"path":"sprites/sprPlayerRunningBack/sprPlayerRunningBack.yy",},
+    {"name":"sprPlayerStanding","order":4,"path":"sprites/sprPlayerStanding/sprPlayerStanding.yy",},
   ],
 }

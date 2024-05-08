@@ -8,7 +8,7 @@ if (!shootingCooldown) {
 	var xOffset = lengthdir_x(20, dir)
 	var yOffset = lengthdir_y(20, dir)
 
-	instance_create_layer(xGunDir + xOffset, y + yOffset, "Instances", objBullet);
+	instance_create_layer(xGunDir + xOffset, y + yOffset, "InstancesPlayer", objBullet);
 	shootingCooldown = true
 	alarm[0] = 15;
 }

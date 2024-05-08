@@ -4,11 +4,12 @@
 //shootingCooldown = game_set_speed(60, );
 //alarm[0] = shootingCooldown;
 
-hsp = 0;
-vsp = 0;
+xMove= 0;
+yMove = 0;
 grv = 0.3;
 walksp = 4;
-controller = 0;
+sprint = 0
+// If death zet naar False zo dat de speler niet meer kan bewegen
 hascontrol = true;
 canjump = 0;
 
