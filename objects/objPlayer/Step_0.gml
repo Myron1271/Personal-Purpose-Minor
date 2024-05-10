@@ -11,6 +11,7 @@ if (hascontrol)
 	//De VARS worden == 1 als A, D, of Space ingedurkt wordt, zo niet dan zijn ze == 0
 	keyLeft = keyboard_check(ord("A"));
 	keyRight = keyboard_check(ord("D"));
+	keySlowWalk = keyboard_check(vk_alt)
 	keySprint = keyboard_check(vk_shift);
 	keyJump = keyboard_check_pressed(vk_space); 
 }
@@ -31,8 +32,8 @@ else
 // keyLeft = 1 dan is het 0-1 = -1.
 var move = keyRight - keyLeft;
 
-// Zet de snelheid van Movement naar walksp
-xMove = (move * walksp);
+// Zet de snelheid van Movement naar playerSpeed
+xMove = (move * playerSpeed);
 
 
 // Zet de zwaarte van de verticale Movement
@@ -73,25 +74,42 @@ if (array_length(yMoveColide) > 0) {
 var aimside = sign(mouse_x - x)
 if (aimside != 0) image_xscale = aimside;
 
+// Wanneer de Player shift inhoudt verhoog de playerSpeed met 0.005 als de playerSpeed 10 heeft bereikt stop dan met snelheid toevoegen
 if (keySprint) {
 	for (var i = 0; i < 10; i++) {
-		walksp += 0.01;
-		if (walksp > 10) {
-			walksp = 10
+		playerSpeed += 0.005;
+		if (playerSpeed > 10) {
+			playerSpeed = 10
 			break;
 		}
 	}
 }
+// Wanneer de Player stopt met sprinten zet de playerSpeed terug naar 4
 else {
-	walksp = 4;
+	playerSpeed = 4;
+}
+
+// Als Player shift inhoudt en loopt achteruit verhoog de Player Speed naar 6
+if (keySprint && aimside != sign(xMove)) {
+	for (var i = 0; i < 10; i++) {
+		playerSpeed += 0.001;
+		if (playerSpeed > 5) {
+			playerSpeed = 5
+			break;
+		}
+	}
+}
+
+if (keySlowWalk) {
+	playerSpeed = 2;
 }
 
 // Dit stukje code later veranderen in een "beter" geschreven stuk
 if (!place_meeting(x, y+1, [objGround, objGroudSlope])) {
 	// Bepaalt welke Sprite gekozen word
 	sprite_index = sprPlayerJumping
-	if (keySprint && walksp > 5) {
-	} else walksp = 4
+	if (keySprint && playerSpeed > 5) {
+	} else playerSpeed = 4
 	// Snelheid tussen de getekende frames
 	image_speed = 0;
 	if (sign(yMove) > 0) {
@@ -104,13 +122,20 @@ if (!place_meeting(x, y+1, [objGround, objGroudSlope])) {
 } else {
 	image_speed = 1;
 	if (xMove == 0) {
+		//Bug fixen met juisten sprite als je stil staat
 		sprite_index = sprPlayerStanding
-	} else if (walksp > 7) {
+	} 
+	else if (playerSpeed > 7) {
 		sprite_index = sprPlayerSprinting
-	} else sprite_index = sprPlayerRunning;
-		if (aimside != sign(xMove)) {
-			sprite_index = sprPlayerRunningBack
-			walksp = 4;
+	}
+	else if (playerSpeed == 2) {
+		sprite_index = sprPlayerWalking
+	}
+	else {
+		sprite_index = sprPlayerRunning;
+			if (aimside != sign(xMove)) {
+				sprite_index = sprPlayerRunningBack
+			}
 		}
 }
 #endregion

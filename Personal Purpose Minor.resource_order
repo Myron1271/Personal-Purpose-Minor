@@ -31,5 +31,6 @@
     {"name":"sprPlayerRunningBack","order":7,"path":"sprites/sprPlayerRunningBack/sprPlayerRunningBack.yy",},
     {"name":"sprPlayerSprinting","order":13,"path":"sprites/sprPlayerSprinting/sprPlayerSprinting.yy",},
     {"name":"sprPlayerStanding","order":4,"path":"sprites/sprPlayerStanding/sprPlayerStanding.yy",},
+    {"name":"sprPlayerWalking","order":14,"path":"sprites/sprPlayerWalking/sprPlayerWalking.yy",},
   ],
 }

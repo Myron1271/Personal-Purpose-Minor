@@ -8,7 +8,7 @@ xMove= 0;
 yMove = 0;
 grv = 0.3;
 jumpSpeed = -7
-walksp = 4;
+playerSpeed = 4;
 sprintsp = 8;
 // If death zet naar False zo dat de speler niet meer kan bewegen
 hascontrol = true;

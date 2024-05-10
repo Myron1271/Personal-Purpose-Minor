@@ -52,6 +52,7 @@
     {"id":{"name":"sprPlayerRunningBack","path":"sprites/sprPlayerRunningBack/sprPlayerRunningBack.yy",},},
     {"id":{"name":"sprPlayerSprinting","path":"sprites/sprPlayerSprinting/sprPlayerSprinting.yy",},},
     {"id":{"name":"sprPlayerStanding","path":"sprites/sprPlayerStanding/sprPlayerStanding.yy",},},
+    {"id":{"name":"sprPlayerWalking","path":"sprites/sprPlayerWalking/sprPlayerWalking.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
