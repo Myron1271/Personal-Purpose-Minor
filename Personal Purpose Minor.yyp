@@ -31,7 +31,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.4.0.137",
+    "IDEVersion":"2024.2.0.132",
   },
   "name":"Personal Purpose Minor",
   "resources":[
@@ -47,11 +47,14 @@
     {"id":{"name":"sprGround","path":"sprites/sprGround/sprGround.yy",},},
     {"id":{"name":"Sprite9","path":"sprites/Sprite9/Sprite9.yy",},},
     {"id":{"name":"sprPlayerGun","path":"sprites/sprPlayerGun/sprPlayerGun.yy",},},
+    {"id":{"name":"sprPlayerGunOLD","path":"sprites/sprPlayerGunOLD/sprPlayerGunOLD.yy",},},
     {"id":{"name":"sprPlayerJumping","path":"sprites/sprPlayerJumping/sprPlayerJumping.yy",},},
     {"id":{"name":"sprPlayerRunning","path":"sprites/sprPlayerRunning/sprPlayerRunning.yy",},},
     {"id":{"name":"sprPlayerRunningBack","path":"sprites/sprPlayerRunningBack/sprPlayerRunningBack.yy",},},
+    {"id":{"name":"sprPlayerRunningOLD","path":"sprites/sprPlayerRunningOLD/sprPlayerRunningOLD.yy",},},
     {"id":{"name":"sprPlayerSprinting","path":"sprites/sprPlayerSprinting/sprPlayerSprinting.yy",},},
     {"id":{"name":"sprPlayerStanding","path":"sprites/sprPlayerStanding/sprPlayerStanding.yy",},},
+    {"id":{"name":"sprPlayerStandingOLD","path":"sprites/sprPlayerStandingOLD/sprPlayerStandingOLD.yy",},},
     {"id":{"name":"sprPlayerWalking","path":"sprites/sprPlayerWalking/sprPlayerWalking.yy",},},
   ],
   "resourceType":"GMProject",
