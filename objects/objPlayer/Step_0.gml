@@ -1,9 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+var playerCheckGround = place_meeting(x, y+1, [objGround, objGroudSlope])
+
 //Movement
 #region
-
 // Hascontrol = true dan maak VARS aan voor movment
 // Kan gebruikt worden voor transitions / animaties wanneer de Player niet mag bewegen
 if (hascontrol)
@@ -40,7 +41,7 @@ xMove = (move * playerSpeed);
 yMove = (yMove + grv);
 
 // Staat de speler op de grond?
-onGround = place_meeting(x, y+1, [objGround, objGroudSlope])
+onGround = playerCheckGround
 
 // If Player is op de grond en drukt op space, verplaats Speler 7 pixels omhoog
 if (canjump > 0) && (keyJump)
@@ -76,10 +77,10 @@ if (aimside != 0) image_xscale = aimside;
 
 // Wanneer de Player shift inhoudt verhoog de playerSpeed met 0.005 als de playerSpeed 10 heeft bereikt stop dan met snelheid toevoegen
 if (keySprint) {
-	for (var i = 0; i < 10; i++) {
+	for (var i = 0; i < playerSprintSpeed; i++) {
 		playerSpeed += 0.005;
-		if (playerSpeed > 10) {
-			playerSpeed = 10
+		if (playerSpeed > playerSprintSpeed) {
+			playerSpeed = playerSprintSpeed
 			break;
 		}
 	}
@@ -91,24 +92,24 @@ else {
 
 // Als Player shift inhoudt en loopt achteruit verhoog de Player Speed naar 6
 if (keySprint && aimside != sign(xMove)) {
-	for (var i = 0; i < 10; i++) {
+	for (var i = 0; i < playerSprintSpeed; i++) {
 		playerSpeed += 0.001;
-		if (playerSpeed > 5) {
-			playerSpeed = 5
+		if (playerSpeed > playerSprintBackwardsSpeed) {
+			playerSpeed = playerSprintBackwardsSpeed
 			break;
 		}
 	}
 }
 
 if (keySlowWalk) {
-	playerSpeed = 2;
+	playerSpeed = playerWalkSpeed;
 }
 
 // Dit stukje code later veranderen in een "beter" geschreven stuk
-if (!place_meeting(x, y+1, [objGround, objGroudSlope])) {
+if (!playerCheckGround) {
 	// Bepaalt welke Sprite gekozen word
 	sprite_index = sprPlayerJumping
-	if (keySprint && playerSpeed > 5) {
+	if (keySprint && playerSpeed > playerSprintBackwardsSpeed) {
 	} else playerSpeed = 4
 	// Snelheid tussen de getekende frames
 	image_speed = 0;
@@ -119,7 +120,8 @@ if (!place_meeting(x, y+1, [objGround, objGroudSlope])) {
 	} else {
 		image_index = 1;
 	}
-} else {
+} 
+else {
 	image_speed = 1;
 	if (xMove == 0) {
 		//Bug fixen met juisten sprite als je stil staat
@@ -128,15 +130,18 @@ if (!place_meeting(x, y+1, [objGround, objGroudSlope])) {
 	else if (playerSpeed > 7) {
 		sprite_index = sprPlayerSprinting
 	}
-	else if (playerSpeed == 2) {
+	else if (playerSpeed == 2 && aimside = sign(xMove)) {
 		sprite_index = sprPlayerWalking
 	}
+	else if (playerSpeed == playerWalkSpeed && aimside != sign(xMove)) {
+		sprite_index = sprPlayerWalkingBack;
+	}	
 	else {
 		sprite_index = sprPlayerRunning;
 			if (aimside != sign(xMove)) {
 				sprite_index = sprPlayerRunningBack
-			}
-		}
+		 }
+	}
 }
 #endregion
 
