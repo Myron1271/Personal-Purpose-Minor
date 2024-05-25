@@ -1,7 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
+xMove = 0;
+yMove = 0;
+enemySpeed = 4;
 
-firingDelay = 0;
-recoil = 0;
+onGround = false;
 
-bulletsShot = 0;
+hp = 4;
+flash = 0;

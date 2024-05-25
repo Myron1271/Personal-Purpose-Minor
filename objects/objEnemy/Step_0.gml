@@ -1,9 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
+if (hp <= 0 ) {
+	instance_destroy();
+}
 
-var dir = point_direction(x, y, objPlayer.x, objPlayer.y);
-
-xMove = lengthdir_x(enemySpeed, dir);
-yMove= lengthdir_y(enemySpeed, dir);
-
-Movement();
