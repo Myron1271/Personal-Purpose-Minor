@@ -4,7 +4,6 @@
 if (hp <= 0 ) {
 	instance_destroy();
 }
-
 else {
 
 	var distanceToPlayer = point_distance(x, y, objPlayer.x, objPlayer.y)
@@ -17,6 +16,20 @@ else {
 		speed = 0;
 	}
 }
+
+// CODE IDEE VOOR ENEMIES MET WAPENS IN HAND
+// if (objFollowPlayer is in range met Player) 
+//{
+//	stop met bewegen en schiet op objPlayer
+//}
+//else {
+//	Als de Player van de enemy wegloopt buiten een bepaalde waarde, volg Player en stop binnen een waarde
+//	en schiet dan weer op player
+//}
+//else {
+//	Als objFollowPlayer buiten het zichtbaar scherm valt, "dan return to normal duties"
+//}
+
 
 
 

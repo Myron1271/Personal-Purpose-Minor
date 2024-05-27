@@ -15,3 +15,6 @@ canjump = 0;
 onGround = false;
 
 mask_index = sprPlayerRunning;
+
+flash = 0;
+hp = 994;

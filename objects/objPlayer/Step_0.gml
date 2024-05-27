@@ -1,6 +1,12 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+//HP is 0 Player is gameover
+if (hp <= 0 ) {
+	hascontrol = false;
+	instance_destroy();
+}
+
 var playerCheckGround = place_meeting(x, y+1, [objGround, objGroudSlope])
 
 //Movement

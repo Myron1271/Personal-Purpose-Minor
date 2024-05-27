@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"EnemyMovementPush",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"EnemyMovementPush",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
