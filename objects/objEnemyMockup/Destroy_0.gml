@@ -6,4 +6,4 @@
 
 
 
-//instance_destroy(objEnemyGun);
+instance_destroy(objEnemyGun);

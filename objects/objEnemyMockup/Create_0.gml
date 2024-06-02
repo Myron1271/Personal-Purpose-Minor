@@ -12,5 +12,5 @@ yMovePush = 0;
 
 
 
-//hp = 4;
-//flash = 0;
+hp = 4;
+flash = 0;
