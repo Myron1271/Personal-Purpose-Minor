@@ -58,7 +58,7 @@ if (canjump > 0) && (keyJump)
 #endregion
 
 #region //Collide and Movement op hellingen
-	Movement();
+	Movement(xMove, yMove);
 #endregion
 
 #region Animatie van de Player Movement
