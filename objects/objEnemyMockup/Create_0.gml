@@ -3,9 +3,9 @@
 
 speed_ = [0, 0];
 acceleration_ = 0.08;
-max_speed_ = 3.5;
+max_speed_ = 2.5;
 hp = 4;
-
+enemyAggro = false;
 
 
 

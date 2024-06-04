@@ -33,11 +33,11 @@ if (hp <= 0 )
 var distanceToPlayer = point_distance(x,y, objPlayer.x, objPlayer.y);
 var withinSight = !collision_line(x,y, objPlayer.x, objPlayer.y, [objGround, objGroudSlope], false, false)
 
-if (distanceToPlayer <= 400 && withinSight)
+if ((distanceToPlayer <= 400 && withinSight) || enemyAggro)
 {
 	if instance_exists(objPlayer) 
 	{
-		var dir = point_direction(x, y, objPlayer.x, objPlayer.y - 100);
+		var dir = point_direction(x, y, objPlayer.x, objPlayer.y - 125);
 		speed_[h] += lengthdir_x(acceleration_, dir);
 		speed_[v] += lengthdir_y(acceleration_, dir);
 		if point_distance(0, 0, speed_[h], speed_[v]) > max_speed_ 
@@ -56,11 +56,13 @@ if (distanceToPlayer <= 400 && withinSight)
 	EnemyFlightMovement(speed_, 1);
 }
 
+if (distanceToPlayer <= 400)
+{
+	enemyAggro = false;
+}
 
 
-
-
-
+////OLD CODE
 
 //if (!place_meeting(x,y, objEnemyMockup)) 
 //{
@@ -69,7 +71,7 @@ if (distanceToPlayer <= 400 && withinSight)
 //}
 
 
-////OLD CODE
+
 //var dir = point_direction(x, y, objPlayer.x, objPlayer.y - 150);
 
 //var distanceToPlayer = point_distance(x,y, objPlayer.x, objPlayer.y);
