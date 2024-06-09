@@ -17,4 +17,4 @@ onGround = false;
 mask_index = sprPlayerRunning;
 
 flash = 0;
-hp = 994;
+hp = 10;
