@@ -7,7 +7,7 @@ if (hp <= 0 ) {
 	instance_destroy();
 }
 
-var playerCheckGround = place_meeting(x, y+1, [objGround, objGroudSlope])
+var playerCheckGround = place_meeting(x, y+1, [myTileMapCollision, objBossEnemy])
 
 //Movement
 #region
@@ -21,6 +21,8 @@ if (hascontrol)
 	keySlowWalk = keyboard_check(vk_alt)
 	keySprint = keyboard_check(vk_shift);
 	keyJump = keyboard_check_pressed(vk_space); 
+	keyDown = keyboard_check(ord("S"))
+	keyUp = keyboard_check_pressed(ord("W"))
 }
 else
 {
@@ -52,13 +54,13 @@ onGround = playerCheckGround
 // If Player is op de grond en drukt op space, verplaats Speler 7 pixels omhoog
 if (canjump > 0) && (keyJump)
 {
-    yMove = jumpSpeed; // Jumpspeed = -7
+    yMove = jumpSpeed + BigJump; // Jumpspeed = -7
     canjump = 0;
 }
 #endregion
 
 #region //Collide and Movement op hellingen
-	Movement(xMove, yMove);
+	Movement();
 #endregion
 
 #region Animatie van de Player Movement
@@ -95,6 +97,29 @@ if (keySlowWalk) {
 	playerSpeed = playerWalkSpeed;
 }
 
+if (keyDown && canCrouch) 
+{
+	crouching = true;
+}
+if (crouching)
+{
+	mask_index = sprPlayerCrouch;
+}
+
+if (crouching && !keyDown)
+{
+	mask_index = sprPlayerStanding;
+	if (!place_meeting(x,y, myTileMapCollision))
+	{
+		crouching = false
+	}
+	else
+	{
+		mask_index = sprPlayerCrouch;
+		
+	}
+}
+
 // Dit stukje code later veranderen in een "beter" geschreven stuk
 if (!playerCheckGround) {
 	// Bepaalt welke Sprite gekozen word
@@ -116,7 +141,7 @@ else {
 	if (xMove == 0) {
 		//Bug fixen met juisten sprite als je stil staat
 		sprite_index = sprPlayerStanding
-	} 
+	} 	
 	else if (playerSpeed > 7) {
 		sprite_index = sprPlayerSprinting
 	}
@@ -124,10 +149,10 @@ else {
 		sprite_index = sprPlayerWalking
 	}
 	else if (playerSpeed == playerWalkSpeed && aimside != sign(xMove)) {
-		sprite_index = sprPlayerWalkingBack;
+		sprite_index = sprPlayerWalkingBack
 	}	
 	else {
-		sprite_index = sprPlayerRunning;
+		sprite_index = sprPlayerRunning
 			if (aimside != sign(xMove)) {
 				sprite_index = sprPlayerRunningBack
 		 }
@@ -135,4 +160,14 @@ else {
 }
 #endregion
 
-
+if (crouching)
+{
+	image_speed = 1;
+	sprite_index = sprPlayerCrouch
+	instance_deactivate_object(objPlayerGun)
+}
+else instance_activate_object(objPlayerGun)
+mask_index = sprPlayerStanding
+if (crouching) {
+	mask_index = sprPlayerCrouch
+}

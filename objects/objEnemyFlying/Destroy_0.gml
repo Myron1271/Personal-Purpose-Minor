@@ -12,4 +12,5 @@ if (instance_exists(gun))
 
 
 
+
 //instance_destroy(objEnemyGun);

@@ -7,7 +7,7 @@
   "managed":true,
   "name":"objButtonQuit",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"objButtonParent","path":"objects/objButtonParent/objButtonParent.yy",},"propertyId":{"name":"buttonMenuText","path":"objects/objButtonParent/objButtonParent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"Exit Game",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"objButtonParent","path":"objects/objButtonParent/objButtonParent.yy",},"propertyId":{"name":"buttonMenuText","path":"objects/objButtonParent/objButtonParent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"EXIT GAME",},
   ],
   "parent":{
     "name":"Objects",

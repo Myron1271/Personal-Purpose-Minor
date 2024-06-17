@@ -24,3 +24,5 @@ gun.enemyGunOwner = id;
 
 //hp = 4;
 flash = 0;
+
+powerUpSpawned = false

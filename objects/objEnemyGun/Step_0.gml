@@ -11,14 +11,14 @@ if (instance_exists(enemyGunOwner))
 
 	var distanceEnemyGunToPlayer = point_distance(x, y, objPlayer.x, objPlayer.y)
 
-	if (distanceEnemyGunToPlayer <= 300 && !collision_line(x,y, objPlayer.x, objPlayer.y, [objGround, objGroudSlope], false, false))
+	if (distanceEnemyGunToPlayer <= 200 && !collision_line(x,y, objPlayer.x, objPlayer.y, myTileMapCollision, false, false))
 	{
 		image_angle = point_direction(x, y, objPlayer.x, objPlayer.y - 13)
 		countdown -= 1;
 		if (countdown <= 0) 
 		{
 			countdown = enemyShootCountdown;
-			if (!collision_line(x,y, objPlayer.x, objPlayer.y, [objGround, objGroudSlope], false, false)) 
+			if (!collision_line(x,y, objPlayer.x, objPlayer.y, myTileMapCollision, false, false)) 
 			{			
 				with (instance_create_layer(x, y, "InstancesBullets", objEnemyBullet))
 				{

@@ -4,6 +4,6 @@ with (other) {
 	hp -=1;
 	//hp--;
 	flash = 3;
-	show_debug_message("Enemy HP: " + string(hp))
+	//show_debug_message("Enemy HP: " + string(hp))
 		
 }

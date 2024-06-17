@@ -7,7 +7,7 @@
   "managed":true,
   "name":"objButtonStart",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"objButtonParent","path":"objects/objButtonParent/objButtonParent.yy",},"propertyId":{"name":"buttonMenuText","path":"objects/objButtonParent/objButtonParent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"Start Game",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"objButtonParent","path":"objects/objButtonParent/objButtonParent.yy",},"propertyId":{"name":"buttonMenuText","path":"objects/objButtonParent/objButtonParent.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"START GAME",},
   ],
   "parent":{
     "name":"Objects",

@@ -10,6 +10,7 @@
     {"$GMEvent":"","%Name":"","collisionObjectId":{"name":"objEnemyFlying","path":"objects/objEnemyFlying/objEnemyFlying.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":{"name":"objFollowPlayer","path":"objects/objFollowPlayer/objFollowPlayer.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":40,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"","%Name":"","collisionObjectId":{"name":"objBossEnemy","path":"objects/objBossEnemy/objBossEnemy.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"objBullet",

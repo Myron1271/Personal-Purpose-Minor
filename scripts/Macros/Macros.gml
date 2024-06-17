@@ -4,4 +4,5 @@ function Macros()
 {
 	#macro h 0
 	#macro v 1
+	#macro myTileMapCollision layer_tilemap_get_id("Tiles_1")
 }

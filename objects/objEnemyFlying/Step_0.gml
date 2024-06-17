@@ -28,10 +28,16 @@
 if (hp <= 0 ) 
 {
 	instance_destroy();
+	if (!instance_exists(objEnemyFlying))
+	{
+		instance_create_layer(objPowerUpSpawnCrouch.x, objPowerUpSpawnCrouch.y, "InstancesPowerUp", objPowerUp);
+	}
 }
 
+//show_debug_message("Powerup Spawned value: " + string(powerUpSpawned))
+
 var distanceToPlayer = point_distance(x,y, objPlayer.x, objPlayer.y);
-var withinSight = !collision_line(x,y, objPlayer.x, objPlayer.y, [objGround, objGroudSlope], false, false)
+var withinSight = !collision_line(x,y, objPlayer.x, objPlayer.y, myTileMapCollision, false, false)
 
 if ((distanceToPlayer <= 400 && withinSight) || enemyAggro)
 {
